@@ -1,0 +1,31 @@
+.user {
+  display: inline-block;
+  width: 98%;
+  height: 52px;
+  background: #f9f9f9;
+  margin-bottom: 3px;
+  padding-top: 3px;
+  text-align: left;
+  border: solid #dddfe2 1px;
+  border-radius: 3px;
+  cursor: pointer;
+  &:hover {
+    background: #dddfe2;
+  }
+  transition: background 0.3s;
+}
+
+.imgProfile {
+  margin: 3px;
+  height: 40px;
+  border-radius: 50%;
+  display: inline;
+  float: left;
+}
+
+.userName {
+  display: inline;
+  font-weight: 700;
+  font-size: 18px;
+  margin: 3px;
+}

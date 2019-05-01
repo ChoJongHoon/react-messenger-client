@@ -1,0 +1,68 @@
+@import "./mixin";
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+.list {
+  width: 240px;
+  height: 100%;
+  position: fixed;
+  top: 0px;
+  bottom: 0px;
+  padding-top: 48px;
+  overflow-y: scroll;
+  -ms-overflow-style: none;
+  background: #f2f3f5;
+  transition: left 0.5s;
+  text-align: center;
+  // box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
+  //   0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+
+  @include respond-to("small") {
+    left: -240px;
+    &.show {
+      left: 0;
+    }
+
+    &.unshow {
+      left: -240px;
+    }
+  }
+
+  .onlineBar {
+    text-align: center;
+    height: 24px;
+    background: #51cf66;
+    color: #ffffff;
+    text-shadow: 0px 2px 2px #000000;
+    margin-bottom: 3px;
+  }
+
+  .offlineBar {
+    text-align: center;
+    height: 24px;
+    background: #ff6b6b;
+    color: #ffffff;
+    margin-bottom: 10px;
+    text-shadow: 0px 2px 2px #000000;
+    margin-bottom: 3px;
+  }
+
+  .searchField {
+    margin: 3px;
+  }
+}
+
+.toggleShowList {
+  position: fixed;
+  color: #ffffff;
+  top: 6px;
+  left: 8px;
+  z-index: 10000;
+  cursor: pointer;
+  display: none;
+  @include respond-to("small") {
+    display: block;
+  }
+}

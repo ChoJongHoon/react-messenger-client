@@ -1,0 +1,9 @@
+@import "./mixin";
+
+.contents {
+  padding-top: 48px;
+  padding-left: 240px;
+  @include respond-to("small") {
+    padding-left: 0px;
+  }
+}
