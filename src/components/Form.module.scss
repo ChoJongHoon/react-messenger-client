@@ -1,0 +1,17 @@
+@import "./mixin";
+
+.form {
+  position: fixed;
+  bottom: 0px;
+  left: 240px;
+  right: 0px;
+  padding: 0px 10px;
+  background: rgba($color: #ffffff, $alpha: 0.9);
+  @include respond-to("small") {
+    left: 0px;
+  }
+}
+
+.sendButton {
+  cursor: pointer;
+}
