@@ -19,6 +19,7 @@ const FacebookLoginButton = ({ setRedirectToReferrer }) => {
           appId="2329703533974558"
           autoLoad={false}
           fields="id,name,picture"
+          redirectUri="https://10.200.43.120:3000/Login"
           callback={res => {
             addUser({
               variables: {

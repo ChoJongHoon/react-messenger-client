@@ -19,6 +19,7 @@ const getMessages = gql`
 const newMessage = gql`
   subscription newMessage($roomId: String) {
     newMessage(roomId: $roomId) {
+      _id
       senderId
       receiverId
       contents
@@ -29,55 +30,86 @@ const newMessage = gql`
 
 let unsubscribe = null;
 
-const MessageList = ({ chatId }) => {
-  console.log(chatId);
-  return (
-    <Query
-      query={getMessages}
-      variables={{
-        userId1: window.sessionStorage.getItem("id"),
-        userId2: chatId
-      }}
-    >
-      {({ loading, error, data: { messages }, subscribeToMore }) => {
-        if (!unsubscribe) {
-          unsubscribe = subscribeToMore({
-            document: newMessage,
-            variables: {
-              roomId:
-                window.sessionStorage.getItem("id") < chatId
-                  ? window.sessionStorage.getItem("id") + chatId
-                  : chatId + window.sessionStorage.getItem("id")
-            },
-            updateQuery: (prev, { subscriptionData }) => {
-              if (!subscriptionData.data) {
-                return prev;
-              }
-              const { newMessage } = subscriptionData.data;
-              return {
-                ...prev,
-                messages: [...prev.messages, newMessage]
-              };
+class MessageList extends React.Component {
+  scrollToBottom = () => {
+    console.log(this.messagesEnd);
+    setTimeout(() => {
+      this.messagesEnd.scrollIntoView();
+    }, 100);
+  };
+
+  render() {
+    const { chatId } = this.props;
+    return (
+      <div>
+        <Query
+          query={getMessages}
+          variables={{
+            userId1: window.sessionStorage.getItem("id"),
+            userId2: chatId
+          }}
+        >
+          {({ loading, error, data, subscribeToMore, refetch }) => {
+            if (loading) {
+              return null;
             }
-          });
-        }
-        console.log(messages);
-        return loading ? null : (
-          <div className={styles.messageList}>
-            {messages.map(message => (
-              <Message
-                key={message._id}
-                me={message.senderId === window.sessionStorage.getItem("id")}
-                time={message.time}
-              >
-                {message.contents}
-              </Message>
-            ))}
-          </div>
-        );
-      }}
-    </Query>
-  );
-};
+            if (error) {
+              return error;
+            }
+            if (!unsubscribe) {
+              unsubscribe = subscribeToMore({
+                document: newMessage,
+                variables: {
+                  roomId:
+                    window.sessionStorage.getItem("id") < chatId
+                      ? window.sessionStorage.getItem("id") + chatId
+                      : chatId + window.sessionStorage.getItem("id")
+                },
+                updateQuery: (prev, { subscriptionData }) => {
+                  if (!subscriptionData.data) {
+                    return prev;
+                  }
+                  const { newMessage } = subscriptionData.data;
+                  return {
+                    ...prev,
+                    messages: [...prev.messages, newMessage]
+                  };
+                }
+              });
+            }
+            console.log(data.messages);
+            refetch();
+            this.scrollToBottom();
+            return (
+              <div className={styles.messageList}>
+                {data.messages.map(message => (
+                  <Message
+                    key={message._id}
+                    me={
+                      message.senderId === window.sessionStorage.getItem("id")
+                    }
+                    time={message.time}
+                  >
+                    {message.contents}
+                  </Message>
+                ))}
+              </div>
+            );
+          }}
+        </Query>
+
+        <div
+          style={{
+            float: "left",
+            clear: "both"
+          }}
+          ref={el => {
+            this.messagesEnd = el;
+          }}
+        />
+      </div>
+    );
+  }
+}
 
 export default MessageList;

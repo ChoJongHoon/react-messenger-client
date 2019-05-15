@@ -10,7 +10,7 @@ const Contents = ({ chatId }) => {
   return (
     <div className={styles.contents}>
       <MessageList chatId={chatId} />
-      <Form />
+      <Form chatId={chatId} />
     </div>
   );
 };

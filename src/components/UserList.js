@@ -33,7 +33,9 @@ const UserList = ({ setChatId }) => {
         if (data) {
           console.log(data);
           const filteredSearchUser = data.users.filter(
-            user => user.name.indexOf(keyword) !== -1
+            user =>
+              user.name.indexOf(keyword) !== -1 &&
+              user._id !== window.sessionStorage.getItem("id")
           );
           const filteredOnlineUser = filteredSearchUser.filter(
             user => user.online
