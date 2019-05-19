@@ -4,19 +4,19 @@ self.__precacheManifest = [
     "url": "/react-messenger-client/static/js/runtime~main.fa88cfe1.js"
   },
   {
-    "revision": "7c4f1359bb089f01f6be",
-    "url": "/react-messenger-client/static/js/main.d337874c.chunk.js"
+    "revision": "f5641a6bd84d27160a3a",
+    "url": "/react-messenger-client/static/js/main.08574165.chunk.js"
   },
   {
     "revision": "de62a3d50b94b8e2b589",
     "url": "/react-messenger-client/static/js/2.5f1906fd.chunk.js"
   },
   {
-    "revision": "7c4f1359bb089f01f6be",
+    "revision": "f5641a6bd84d27160a3a",
     "url": "/react-messenger-client/static/css/main.3f55c204.chunk.css"
   },
   {
-    "revision": "ff4e15380b3bc6b960b243cb2eeb8fef",
+    "revision": "87db51e2506df0888171e28aae05dd8d",
     "url": "/react-messenger-client/index.html"
   }
 ];
