@@ -1,11 +1,24 @@
 import React, { useState } from "react";
+import { useMutation } from "react-apollo-hooks";
+import gql from "graphql-tag";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import Icon from "@material-ui/core/Icon";
 import { IconButton } from "@material-ui/core";
 import styles from "./MenuButton.module.scss";
 
-const MenuButton = ({ setRedirectToReferrer }) => {
+const userConnectChange = gql`
+  mutation userConnectChange($_id: String!, $online: Boolean!) {
+    userConnectChange(_id: $_id, online: $online) {
+      _id
+      name
+      online
+      imageUrl
+    }
+  }
+`;
+
+const MenuButton = ({ setRedirectToReferrer, setShowTodo }) => {
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
 
@@ -17,7 +30,15 @@ const MenuButton = ({ setRedirectToReferrer }) => {
     setAnchorEl(null);
   };
 
+  const onLeave = useMutation(userConnectChange, {
+    variables: {
+      _id: window.sessionStorage.getItem("id"),
+      online: false
+    }
+  });
+
   const onClickLogout = () => {
+    onLeave();
     window.sessionStorage.clear();
     setRedirectToReferrer(true);
   };
@@ -46,7 +67,14 @@ const MenuButton = ({ setRedirectToReferrer }) => {
         }}
       >
         <MenuItem onClick={onClickLogout}>Logout</MenuItem>
-        <MenuItem onClick={handleClose}>Todo List</MenuItem>
+        <MenuItem
+          onClick={() => {
+            setShowTodo(true);
+            handleClose();
+          }}
+        >
+          Todo List
+        </MenuItem>
       </Menu>
     </div>
   );

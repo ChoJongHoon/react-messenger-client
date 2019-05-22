@@ -30,6 +30,7 @@ const FacebookLoginButton = ({ setRedirectToReferrer }) => {
             });
             window.sessionStorage.setItem("id", res.id);
             window.sessionStorage.setItem("name", res.name);
+            window.sessionStorage.setItem("imgUrl", res.picture.data.url);
             setRedirectToReferrer(true);
           }}
           icon="fa-facebook"

@@ -32,7 +32,6 @@ let unsubscribe = null;
 
 class MessageList extends React.Component {
   scrollToBottom = () => {
-    console.log(this.messagesEnd);
     setTimeout(() => {
       this.messagesEnd.scrollIntoView();
     }, 100);
@@ -77,7 +76,6 @@ class MessageList extends React.Component {
                 }
               });
             }
-            console.log(data.messages);
             refetch();
             this.scrollToBottom();
             return (

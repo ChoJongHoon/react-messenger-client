@@ -17,6 +17,19 @@ const getUsers = gql`
   }
 `;
 
+const newUser = gql`
+  subscription {
+    newUser {
+      _id
+      name
+      imageUrl
+      online
+    }
+  }
+`;
+
+let unsubscribe = null;
+
 const UserList = ({ setChatId }) => {
   const [toggleShowList, setToggleShowList] = useState(false);
   const [keyword, setKeyword] = useState("");
@@ -26,12 +39,27 @@ const UserList = ({ setChatId }) => {
 
   return (
     <Query query={getUsers}>
-      {({ loading, data }) => {
+      {({ loading, data, subscribeToMore, refetch }) => {
         if (loading) {
           return null;
         }
         if (data) {
-          console.log(data);
+          if (!unsubscribe) {
+            unsubscribe = subscribeToMore({
+              document: newUser,
+              updateQuery: (prev, { subscriptionData }) => {
+                if (!subscriptionData.data) {
+                  return prev;
+                }
+                const { newUser } = subscriptionData.data;
+                return {
+                  ...prev,
+                  users: [...prev.users, newUser]
+                };
+              }
+            });
+          }
+          refetch();
           const filteredSearchUser = data.users.filter(
             user =>
               user.name.indexOf(keyword) !== -1 &&

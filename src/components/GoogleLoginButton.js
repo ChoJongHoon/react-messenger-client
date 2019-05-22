@@ -30,10 +30,11 @@ const GoogleLoginButton = ({ setRedirectToReferrer }) => {
             });
             window.sessionStorage.setItem("id", res.profileObj.googleId);
             window.sessionStorage.setItem("name", res.profileObj.name);
+            window.sessionStorage.setItem("imgUrl", res.profileObj.imageUrl);
             setRedirectToReferrer(true);
           }}
-          onFailure={() => {
-            console.log("fail");
+          onFailure={err => {
+            console.log(err);
           }}
           className={styles.loginButton}
         />

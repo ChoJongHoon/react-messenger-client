@@ -25,4 +25,14 @@
     position: absolute;
     right: 0px;
   }
+
+  .profile {
+    z-index: 51;
+    position: absolute;
+    right: 44px;
+    top: 0px;
+    margin: 6px;
+    height: 36px;
+    border-radius: 50%;
+  }
 }

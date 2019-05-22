@@ -1,0 +1,43 @@
+.todoItem {
+  padding: 1rem;
+  display: flex;
+  align-items: center; /* 세로 가운데 정렬 */
+  cursor: pointer;
+  transition: all 0.15s;
+  user-select: none;
+  &:hover {
+    background: #e3fafc;
+    .remove {
+      opacity: 1;
+    }
+  }
+}
+
+.todoItem + .todoItem {
+  border-top: 1px solid #f1f3f5;
+}
+
+.remove {
+  margin-right: 1rem;
+  color: #e64980;
+  font-weight: 600;
+  opacity: 0;
+}
+
+.todoText {
+  flex: 1; /* 체크, 엑스를 제외한 공간 다 채우기 */
+  word-break: break-all;
+}
+
+.checked {
+  text-decoration: line-through;
+  color: #adb5bd;
+}
+
+.checkMark {
+  font-size: 1.5rem;
+  line-height: 1rem;
+  margin-left: 1rem;
+  color: #3bc9db;
+  font-weight: 800;
+}
