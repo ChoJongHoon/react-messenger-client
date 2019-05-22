@@ -1,13 +1,13 @@
 {
-  "main.css": "/react-messenger-client/static/css/main.3f55c204.chunk.css",
-  "main.js": "/react-messenger-client/static/js/main.08574165.chunk.js",
-  "main.js.map": "/react-messenger-client/static/js/main.08574165.chunk.js.map",
+  "main.css": "/react-messenger-client/static/css/main.a82b1430.chunk.css",
+  "main.js": "/react-messenger-client/static/js/main.6ea9259a.chunk.js",
+  "main.js.map": "/react-messenger-client/static/js/main.6ea9259a.chunk.js.map",
   "runtime~main.js": "/react-messenger-client/static/js/runtime~main.fa88cfe1.js",
   "runtime~main.js.map": "/react-messenger-client/static/js/runtime~main.fa88cfe1.js.map",
-  "static/js/2.5f1906fd.chunk.js": "/react-messenger-client/static/js/2.5f1906fd.chunk.js",
-  "static/js/2.5f1906fd.chunk.js.map": "/react-messenger-client/static/js/2.5f1906fd.chunk.js.map",
+  "static/js/2.ce5219d3.chunk.js": "/react-messenger-client/static/js/2.ce5219d3.chunk.js",
+  "static/js/2.ce5219d3.chunk.js.map": "/react-messenger-client/static/js/2.ce5219d3.chunk.js.map",
   "index.html": "/react-messenger-client/index.html",
-  "precache-manifest.d2ccf59b408b42d9d4c18da4909c8974.js": "/react-messenger-client/precache-manifest.d2ccf59b408b42d9d4c18da4909c8974.js",
+  "precache-manifest.fb282688c13d719f2a69a04f58d302ca.js": "/react-messenger-client/precache-manifest.fb282688c13d719f2a69a04f58d302ca.js",
   "service-worker.js": "/react-messenger-client/service-worker.js",
-  "static/css/main.3f55c204.chunk.css.map": "/react-messenger-client/static/css/main.3f55c204.chunk.css.map"
+  "static/css/main.a82b1430.chunk.css.map": "/react-messenger-client/static/css/main.a82b1430.chunk.css.map"
 }
