@@ -39,6 +39,11 @@ class MessageList extends React.Component {
 
   render() {
     const { chatId } = this.props;
+    console.log(
+      window.sessionStorage.getItem("id") < chatId
+        ? window.sessionStorage.getItem("id") + chatId
+        : chatId + window.sessionStorage.getItem("id")
+    );
     return (
       <div>
         <Query
@@ -75,6 +80,7 @@ class MessageList extends React.Component {
                   };
                 }
               });
+              refetch();
             }
             refetch();
             this.scrollToBottom();

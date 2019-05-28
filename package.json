@@ -12,6 +12,8 @@
     "node-sass": "^4.11.0",
     "open-color": "^1.6.3",
     "react": "^16.8.6",
+    "react-alert": "^5.5.0",
+    "react-alert-template-basic": "^1.0.0",
     "react-apollo": "^2.5.5",
     "react-apollo-hooks": "^0.4.5",
     "react-dom": "^16.8.6",

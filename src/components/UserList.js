@@ -112,7 +112,6 @@ const UserList = ({ setChatId }) => {
                 color="inherit"
                 onClick={() => {
                   setToggleShowList(toggleShowList ? false : true);
-                  console.log(toggleShowList);
                 }}
               >
                 people

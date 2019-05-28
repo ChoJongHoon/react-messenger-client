@@ -1,0 +1,40 @@
+.backgroundBlack {
+  background: #000000;
+  opacity: 0.8;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  z-index: 1000;
+}
+
+.joinBox {
+  background: #ffffff;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  height: 450px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  z-index: 1001;
+  text-align: center;
+
+  .form {
+    display: inline-block;
+    text-align: left;
+    .checkButton {
+      width: 60px;
+      height: 50px;
+      transition: all 1s;
+    }
+    .textField {
+      margin: 10px;
+    }
+  }
+}
+
+.unShow {
+  display: none;
+}
