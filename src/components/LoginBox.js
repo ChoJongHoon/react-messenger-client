@@ -59,6 +59,8 @@ const LoginBox = () => {
       alert.error("ID를 입력해주세요.");
     } else if (!password) {
       alert.error("패스워드를 입력해주세요.");
+    } else if (!data.user) {
+      alert.error("가입되지 않은 ID입니다.");
     } else {
       if (password === data.user.password) {
         window.sessionStorage.setItem("id", id);

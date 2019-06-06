@@ -17,7 +17,7 @@ const GoogleLoginButton = ({ setRedirectToReferrer }) => {
     <Mutation mutation={addUser}>
       {(addUser, { data }) => (
         <GoogleLogin
-          clientId="165456640557-6cjrts6a3lgjkupm0l6vsg1b8pk45q1l.apps.googleusercontent.com"
+          clientId=""
           buttonText="Login with Google"
           onSuccess={res => {
             console.log(res);

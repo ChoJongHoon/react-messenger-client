@@ -92,6 +92,7 @@ const UserList = ({ setChatId }) => {
                     name={user.name}
                     picture={user.imageUrl}
                     setChatId={setChatId}
+                    setToggleShowList={setToggleShowList}
                   />
                 ))}
                 <div className={styles.offlineBar}>offline</div>
@@ -102,6 +103,7 @@ const UserList = ({ setChatId }) => {
                     name={user.name}
                     picture={user.imageUrl}
                     setChatId={setChatId}
+                    setToggleShowList={setToggleShowList}
                   />
                 ))}
               </div>

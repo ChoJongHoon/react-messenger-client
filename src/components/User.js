@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import styles from "./User.module.scss";
 import defaultImageUrl from "./default_user.png";
 
-const User = ({ _id, name, picture, setChatId }) => {
+const User = ({ _id, name, picture, setChatId, setToggleShowList }) => {
   if (!picture) {
     picture = defaultImageUrl;
   }
@@ -12,6 +12,7 @@ const User = ({ _id, name, picture, setChatId }) => {
       className={styles.user}
       onClick={() => {
         setChatId(_id);
+        setToggleShowList(false);
       }}
     >
       <img src={picture} alt="profile" className={styles.imgProfile} />

@@ -3,7 +3,7 @@ import { HashRouter as Router, Route } from "react-router-dom";
 import client from "./apolloClient";
 import { ApolloProvider } from "react-apollo";
 import { ApolloProvider as ApolloHooksProvider } from "react-apollo-hooks";
-import { transitions, positions, Provider as AlertProvider } from "react-alert";
+import { positions, Provider as AlertProvider } from "react-alert";
 import AlertTemplate from "react-alert-template-basic";
 import Home from "./Home";
 import LoginPage from "./LoginPage";

@@ -16,10 +16,10 @@ const FacebookLoginButton = ({ setRedirectToReferrer }) => {
     <Mutation mutation={addUser}>
       {(addUser, { data }) => (
         <FacebookLogin
-          appId="2329703533974558"
+          appId=""
           autoLoad={false}
           fields="id,name,picture"
-          redirectUri="https://10.200.43.120:3000/Login"
+          redirectUri="https://localhost:3000/Login"
           callback={res => {
             addUser({
               variables: {
